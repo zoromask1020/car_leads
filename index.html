@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Car Rental Inquiry</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #004e92;
+      --primary-light: #0066cc;
+      --background: #f4f7fa;
+      --card-bg: #ffffff;
+      --text-dark: #333;
+      --input-border: #ccc;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to right, var(--primary), #000428);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .form-container {
+      background: var(--card-bg);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+      max-width: 750px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    h2 {
+      margin: 0 0 30px;
+      text-align: center;
+      color: var(--primary);
+      font-size: 28px;
+    }
+
+    form {
+      display: grid;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--text-dark);
+    }
+
+    input, select, textarea {
+      padding: 12px 15px;
+      border: 1px solid var(--input-border);
+      border-radius: 10px;
+      font-size: 15px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--primary);
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(0, 78, 146, 0.2);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    button {
+      background-color: var(--primary);
+      color: white;
+      padding: 14px;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: var(--primary-light);
+    }
+
+    @media (max-width: 768px) {
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Car Rental Inquiry Form</h2>
+    <form action="https://hook.us2.make.com/35cc0j8po8m1e6y6josgixq9d5dehqdz" method="POST">
+
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" name="name" id="name" placeholder="John Doe" required>
+      </div>
+
+      <div class="two-column">
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" name="email" id="email" placeholder="john@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="text" name="phone" id="phone" placeholder="+91-9876543210">
+        </div>
+      </div>
+
+      <div class="two-column">
+        <div class="form-group">
+          <label for="company">Car Company</label>
+          <select name="company" id="company" required>
+            <option value="">Select</option>
+            <option value="Toyota">Toyota</option>
+            <option value="Hyundai">Hyundai</option>
+            <option value="Honda">Honda</option>
+            <option value="Tata">Tata</option>
+            <option value="BMW">BMW</option>
+            <option value="Mercedes">Mercedes</option>
+            <option value="KIA">KIA</option>
+            <option value="Ford">Ford</option>
+            <option value="Cheverolet">Cheverolet</option>
+            <option value="Maruti Suzuki">Maruti Suzuki</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="model">Car Model</label>
+          <input type="text" name="model" id="model" placeholder="E.g., Innova, i20">
+        </div>
+      </div>
+
+      <div class="two-column">
+        <div class="form-group">
+          <label for="price">Price Range (per day)</label>
+          <select name="price" id="price" required>
+            <option value="">Select Range</option>
+            <option value="Below ₹1000">Below ₹1000</option>
+            <option value="₹1000 - ₹3000">₹1000 - ₹3000</option>
+            <option value="₹3000 - ₹6000">₹3000 - ₹6000</option>
+            <option value="₹6000+">₹6000+</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="days">Rental Days</label>
+          <input type="number" name="days" id="days" min="1" placeholder="e.g., 3">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="pickup_date">Preferred Pickup Date</label>
+        <input type="date" name="pickup_date" id="pickup_date">
+      </div>
+
+      <div class="form-group">
+        <label for="lease_company">Lease Company</label>
+        <select name="lease_company" id="lease_company" required>
+          <option value="">Select Lease Company</option>
+          <option value="CompanyA">CompanyA</option>
+          <option value="CompanyB">CompanyB</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Additional Message</label>
+        <textarea name="message" id="message" placeholder="Any specific needs or instructions?"></textarea>
+      </div>
+
+      <button type="submit">Submit Inquiry</button>
+    </form>
+  </div>
+</body>
+</html>
