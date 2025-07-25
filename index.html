@@ -37,10 +37,10 @@
     }
 
     h2 {
-      margin: 0 0 30px;
       text-align: center;
       color: var(--primary);
       font-size: 28px;
+      margin-bottom: 30px;
     }
 
     form {
@@ -110,8 +110,7 @@
 <body>
   <div class="form-container">
     <h2>Car Rental Enquiry Form</h2>
-    <form action="https://hook.us2.make.com/35cc0j8po8m1e6y6josgixq9d5dehqdz" method="POST">
-
+    <form id="rentalForm" action="https://hook.us2.make.com/35cc0j8po8m1e6y6josgixq9d5dehqdz" method="POST">
       <div class="form-group">
         <label for="name">Full Name</label>
         <input type="text" name="name" id="name" placeholder="John Doe" required>
@@ -141,13 +140,13 @@
             <option value="Mercedes">Mercedes</option>
             <option value="KIA">KIA</option>
             <option value="Ford">Ford</option>
-            <option value="Cheverolet">Cheverolet</option>
+            <option value="Chevrolet">Chevrolet</option>
             <option value="Maruti Suzuki">Maruti Suzuki</option>
           </select>
         </div>
         <div class="form-group">
           <label for="model">Car Model</label>
-          <input type="text" name="model" id="model" placeholder="E.g., Innova, i20">
+          <input type="text" name="model" id="model" placeholder="e.g., Innova, i20">
         </div>
       </div>
 
@@ -191,5 +190,14 @@
       <button type="submit">Submit Inquiry</button>
     </form>
   </div>
+
+  <script>
+    document.getElementById("rentalForm").addEventListener("submit", function(e) {
+      // Delay redirect to allow Make.com webhook to accept
+      setTimeout(() => {
+        window.location.href = "thankyou.html"; // 👈 Change to your real hosted URL if needed
+      }, 1500); // Adjust as needed
+    });
+  </script>
 </body>
 </html>
