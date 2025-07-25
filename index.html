@@ -110,7 +110,7 @@
 <body>
   <div class="form-container">
     <h2>Car Rental Enquiry Form</h2>
-    <form id="rentalForm" action="https://hook.us2.make.com/35cc0j8po8m1e6y6josgixq9d5dehqdz" method="POST">
+    <form id="rentalForm">
       <div class="form-group">
         <label for="name">Full Name</label>
         <input type="text" name="name" id="name" placeholder="John Doe" required>
@@ -193,10 +193,34 @@
 
   <script>
     document.getElementById("rentalForm").addEventListener("submit", function(e) {
-      // Delay redirect to allow Make.com webhook to accept
-      setTimeout(() => {
-        window.location.href = "thankyou.html"; // 👈 Change to your real hosted URL if needed
-      }, 1500); // Adjust as needed
+      e.preventDefault(); // prevent full page reload
+
+      const form = e.target;
+      const formData = new FormData(form);
+      const data = {};
+
+      formData.forEach((value, key) => {
+        data[key] = value;
+      });
+
+      fetch("https://hook.us2.make.com/35cc0j8po8m1e6y6josgixq9d5dehqdz", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      })
+      .then(response => {
+        if (response.ok) {
+          window.location.href = "thankyou.html";
+        } else {
+          alert("Submission failed. Please try again.");
+        }
+      })
+      .catch(error => {
+        console.error("Error:", error);
+        alert("An error occurred. Please try again.");
+      });
     });
   </script>
 </body>
